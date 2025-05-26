@@ -9,7 +9,15 @@ for DIR in `ls -d *`; do
     DIRDATE=`echo $DIR | tr -d -`
     if [[ "$DIRDATE" -lt "$TODAY" ]]
     then
-        mv "$DIR" .expired/"$DIR"
+
+        # Safe option. Moves expired files to a hidden directory for manual
+        # deletion
+        # mv "$DIR" .expired/"$DIR"
+
+        # Dangerous option. Permanently deletes expired files and containing
+        # directory
+        rm -r "$DIR"
+
         echo "[Current date: $TODAY] Expirified $DIR." >> .expired.log
     fi
 
