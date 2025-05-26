@@ -1,0 +1,16 @@
+#! /bin/bash
+
+EXPIRING_DIR=/var/www/files/expiring/
+cd "$EXPIRING_DIR"
+
+TODAY=$(date "+%Y%m%d")
+
+for DIR in `ls -d *`; do
+    DIRDATE=`echo $DIR | tr -d -`
+    if [[ "$DIRDATE" -lt "$TODAY" ]]
+    then
+        mv "$DIR" .expired/"$DIR"
+        echo "[Current date: $TODAY] Expirified $DIR." >> .expired.log
+    fi
+
+done
