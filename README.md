@@ -10,7 +10,7 @@ Simply and automatically expire files with cron.
 2. Change the path for `EXPIRING_DIR` to the directory where you want files to expire.
 
 ## Usage
-To make a new set of files that expire on a certain date, create a folder inside the expiring directory named the date you want them to expire in YYYY-MM-DD format. Expirify will delete them after this date and add an entry to the log.
+To make a new set of files that expire on a certain date, create a folder inside the expiring directory named the date you want them to expire in YYYY-MM-DD format. Expirify will delete them after this date and add an entry to the log. Caution: this deletion is permanent. For a safer solution, you can edit the script to move the expired files to a hidden directory and delete them manually.
 
 Here's an example expiring directory:
 ```
